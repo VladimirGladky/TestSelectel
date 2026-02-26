@@ -1,0 +1,25 @@
+linters-settings:
+  custom:
+    loglinter:
+      type: "module"
+      description: "Checks log messages for established rules"
+      settings:
+        rules:
+          - lowercase-first-letter
+          - english-only
+          - no-special-chars
+          - no-sensitive-data
+
+linters:
+  enable:
+    - loglinter
+  disable-all: false
+
+run:
+  timeout: 5m
+  tests: true
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
