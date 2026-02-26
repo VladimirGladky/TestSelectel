@@ -27,7 +27,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			if sel, ok := call.Fun.(*ast.SelectorExpr); ok {
 				methodName := sel.Sel.Name
 
-				if utils.IsLogMethod(methodName) {
+				if utils.IsLogMethod(methodName) && !isFmtPackage(sel.X) {
 					checkLogMessageFirstLetter(pass, call)
 					checkLogMessageEnglishLanguage(pass, call)
 					checkLogMessageSpecialChars(pass, call)
@@ -39,6 +39,13 @@ func run(pass *analysis.Pass) (interface{}, error) {
 		})
 	}
 	return nil, nil
+}
+
+func isFmtPackage(expr ast.Expr) bool {
+	if ident, ok := expr.(*ast.Ident); ok {
+		return ident.Name == "fmt" || ident.Name == "errors"
+	}
+	return false
 }
 
 func checkLogMessageFirstLetter(pass *analysis.Pass, call *ast.CallExpr) {
