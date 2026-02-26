@@ -77,7 +77,7 @@ log.Info("token validated")
 
 ## Установка
 
-### Способ 1: Standalone использование
+### Способ 1: Установить библиотеку к себе в проект
 
 ```bash
 go install github.com/VladimirGladky/SelectelTest/cmd/selectellinter@latest
@@ -126,7 +126,7 @@ golangci-lint custom
 
 ```bash
 # Клонируйте репозиторий
-git clone https://github.com/yourusername/SelectelTest.git
+git clone https://github.com/VladimirGladky/SelectelTest.git
 cd SelectelTest
 
 # Соберите бинарник

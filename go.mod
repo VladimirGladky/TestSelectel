@@ -1,4 +1,4 @@
-module SelectelTest
+module github.com/VladimirGladky/SelectelTest
 
 go 1.25.3
 

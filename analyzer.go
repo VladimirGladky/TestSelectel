@@ -1,7 +1,7 @@
 package SelectelTest
 
 import (
-	"SelectelTest/utils"
+	"github.com/VladimirGladky/SelectelTest/utils"
 	"go/ast"
 	"go/token"
 	"strings"

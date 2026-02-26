@@ -1,7 +1,7 @@
 package main
 
 import (
-	"SelectelTest"
+	"github.com/VladimirGladky/SelectelTest"
 
 	"golang.org/x/tools/go/analysis"
 )
