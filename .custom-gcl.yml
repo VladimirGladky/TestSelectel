@@ -1,5 +1,4 @@
 version: v1.62.2
 plugins:
   - module: 'github.com/VladimirGladky/SelectelTest'
-    import: 'github.com/VladimirGladky/SelectelTest'
-    version: v1.0.0
+    import: 'github.com/VladimirGladky/SelectelTest/plugin'

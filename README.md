@@ -86,34 +86,33 @@ selectellinter ./...
 
 ### Способ 2: Интеграция с golangci-lint (Module Plugin)
 
-1. Создайте файл `.custom-gcl.yml` в корне проекта:
+1. Создайте файл `.custom-gcl.yml` в корне вашего проекта:
 
 ```yaml
 version: v1.62.2
 plugins:
   - module: 'github.com/VladimirGladky/SelectelTest'
-    import: 'github.com/VladimirGladky/SelectelTest'
-    version: v1.0.0
+    import: 'github.com/VladimirGladky/SelectelTest/plugin'
 ```
 
 2. Создайте или обновите `.golangci.yml`:
 
 ```yaml
-linters-settings:
-  custom:
-    loglinter:
-      type: "module"
-      description: "Checks log messages for established rules"
-
 linters:
   enable:
     - loglinter
+
+linters-settings:
+  custom:
+    loglinter:
+      type: module
+      description: Checks log messages for established rules
 ```
 
 3. Соберите кастомный golangci-lint:
 
 ```bash
-golangci-lint custom
+GOPROXY=direct GOSUMDB=off golangci-lint custom
 ```
 
 4. Используйте собранный бинарник:
@@ -121,6 +120,8 @@ golangci-lint custom
 ```bash
 ./custom-gcl run ./...
 ```
+
+**Примечание:** Если возникают проблемы с кешем Go proxy, используйте переменные окружения `GOPROXY=direct GOSUMDB=off`.
 
 ### Способ 3: Локальное использование без публикации
 
